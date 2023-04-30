@@ -118,7 +118,32 @@ multi line comment
 -!
 ```
 
-> **Registry**: The first thing that may seem different in skyline is a keyword known as register `register("")` which is a keyword to basically import libraries. The registry key IS NOT IMPORT, importing in skyline is called and worked around completely differently as `register()` is used for standard libraries, variables, sets, and bricks only. The reason these are seperated right now is due to the different idea's and future invokes that will come from the register statement or the import statement
+> **Registry**: The first thing that may seem different in skyline is a keyword known as register `register("")` which is a keyword to basically import libraries. The registry key IS NOT IMPORT, importing in skyline is called and worked around completely differently as `register()` is used for standard libraries, variables, sets, and bricks only. The reason these are seperated right now is due to the different idea's and future invokes that will come from the register statement or the import statement. Registry statements are shown below to register and use mathematical functions and IO based functions.
+
+```rs
+register("io")
+register("math")
+
+io.clear()
+
+// Unlink the library because it is not used anymore
+"io".UnlinkRegistry() 
+
+println(math.rand())
+```
 
 > **Single Line Comments**: Single line comments only exist as `//` in skyline and can handle nearly any character. It is important to note as talked about in the documents that the language has issues surrounding around comments and string based variables.
+
+```rs
+// a single line comment
+```
+
+> **Constants**: In SkyLine constant variables like any other language can not be modified nor are they allowed or supposed to be modified. In SkyLine constants are defined using `const` or `constant` which is shown below. (Constant values can hold any data type just the same as any other language). It is important to note that semicolons must be used after statements like constant, set, let, cause or allow.
+
+```rs
+constant x = 10;
+constant y = -20.5;
+const data = "str";
+```
+
 
