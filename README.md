@@ -146,4 +146,36 @@ constant y = -20.5;
 const data = "str";
 ```
 
+> **Variables**: Variables are pretty easy to understand in SkyLine and become easy once you get the hang of the keywords that are used to define variables. To start off with variables can be multiple types which are `String, Float, Boolean, Integer, Null`. Given SkyLine is a dynamic programming language, stating the data type is not necessary. You can use keywords like `let, set, cause` to set or declare variables. currently all three keywords do the same exact thing 
+
+```rs 
+set C := " data "; 
+
+cause F2 := Func() { 
+     println(C)
+}; 
+```
+
+> **Using the Library and calling functions**: Calling functions from the standard library is pretty easy, when working with the standard library modules and functions apart of that library or registered import path is the main call. For example, when we can the math library, math will be how you call functions. 
+
+```rs
+register("math") 
+
+math.tan(1) 
+
+register(io) 
+
+io.clear() 
+```
+
+> **Functions**: Functions in SkyLine are pretty easy to understand, they can hold arguments of any data type which includes function calls. You can declare functions with either `Func` or `function` keywords. 
+
+```rs
+set NewF := function() { 
+     NewF
+}; 
+// any unit or block statement must end with a semicolon 
+```
+
+Functions have a weird set of rules which is a prime issue as it may cause some confusion, so lets clear that up a bit. if you want to return variables in a function you can use `ret` or `return`
 
