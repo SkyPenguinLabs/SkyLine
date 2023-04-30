@@ -1,0 +1,6 @@
+constant name = "jef";
+
+
+set NewFunc = function() {
+	println(name)
+};

@@ -1,0 +1,35 @@
+This document contains information on what needs to be worked on from the most primary to the least primary
+
+- Code Organization:
+        The code organization for SkyLine is fucking garbage and needs to be fixed, make sure to organize, document and erase functions that are not used 
+
+        * Sector code into sections 
+        * Add a note block for every single file of direct implementation 
+
+- Error System:
+        The error system for SkyLine is fucking garbage and needs to be fixed as well, make sure to implement calling a tree, a function that can automate 
+        the tree output, a function that can check for modifications to the error systems and apply them accordingly, also work on implementing all 3 forms 
+        of error system output.
+
+- File System:
+        The file system of SkyLine is very damaged and broken and needs to be fixed a little bit. Below are the changes to make 
+
+        Change the checkers -> Change and make the functions to check the data of the files alot better
+
+        Change the support  -> make sure to support multiple files such as .sl, .skyline, .SkyLine, .csc and other various file types
+
+- Standard Library:
+        The standard library for skyline needs alot of work especially the ones currently being worked on.
+
+        Add security measures -> Make sure these functions are checked for every possible thing to prevent crashing 
+
+        Add more libraries    -> libraries like HTTP, JSON, XML, Net, Conn, Socket, IoT, Forensics, Quantum all need to be added before the end of the month
+
+
+- SLC::System   :
+
+    The SkyLine configuration language also needs to be worked on in multiple area's such as file extension checking, flags 
+    that allow you to run it individually as a program and even a call that allows you to work with the actual configuration 
+    in a single environment. Also allow for the registry of libraries with SL.
+
+    The SLC system should work with SkyLine and should not be the biggest issues
