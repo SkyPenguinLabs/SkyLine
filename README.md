@@ -13,8 +13,11 @@ SkyLine is a programming language tailored directly to cyber security related fi
 Installing SkyLine is quite easy as it has a built in makefile and does not depend on any system libraries, controls, commands, packages or even states right now. 
 
 > Step 1: Download the project `git clone https://github.com/SkyPenguin-Solutions/SkyLine.git`
+>
 > Step 2: cd into the directory `cd SkyLine`
+>
 > Step 3: make as sudo `sudo make` or make and then enter password
+>
 > Step 4: enter `skyline` into your terminal with responding flags 
 
 ## SkyLine | Running and Execution ##
