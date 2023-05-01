@@ -39,6 +39,11 @@ SkyLine has multiple flags right now, all of which are used differently and have
 | --engine            | boolean flag, let skyline know to prepare for SkyLine Configuration Engine source code input | `skyline --engine ` |
 | --EF (Engine File)  | string flag, the .slmod source code file for the SkyLine Configuration Engine, used with --engine | `skyline --engine --EF=file.slmod` |
 
+## Help menu ( --help ) ##
+
+![SLCBANNER](https://github.com/SkyPenguin-Solutions/SkyLine/blob/main/Documents/Designed/SLHELP.png?raw=true "Title")
+
+
 ## SkyLine | Your first program ##
 
 Everyone uses hello world programs to get used to the syntax or to run a program in their language, I personally feel writing a funtional and useful brick of code in SkyLine is better than that. The following program is taken from the demo files slot and is used to inject an image with a message!
