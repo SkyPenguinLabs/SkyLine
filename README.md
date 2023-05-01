@@ -35,7 +35,7 @@ SkyLine has multiple flags right now, all of which are used differently and have
 
 ## SkyLine | Your first program ##
 
-Everyone uses hello world programs to get used to the syntax or to run a program in their language, I personally feel writing a funtional and useful brick of code in SkyLine is better than that. The following program is taken from the demo files slot and is used to inject and image with a message!
+Everyone uses hello world programs to get used to the syntax or to run a program in their language, I personally feel writing a funtional and useful brick of code in SkyLine is better than that. The following program is taken from the demo files slot and is used to inject an image with a message!
 
 > For context, we choose to use rust syntax highlighting here
 
