@@ -1,0 +1,10 @@
+set ConsoleCommands := import("Modules/HashFunctions.skyline");
+
+set Input := Func() {
+    set answers := io.input("Enter two numbers EX(2@4)>", "String", "n");
+    answers = answers.Split("@");
+    set x := answers[0].Integer();
+    set y := answers[1].Integer();
+    set ProblemtoSolve := io.input("Enter operation (+,/,-,*)> ", "String", "n");
+    println(" \n Calculation -> " + sprint(ConsoleCommands::ValuesAndAnswers[ProblemtoSolve](x, y)))
+};

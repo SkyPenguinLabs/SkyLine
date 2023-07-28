@@ -1,0 +1,9 @@
+{
+    "Project-Information": {
+        "Name": "Calculator",
+        "Version": "1.0.0",
+        "Description": "Make Calculations",
+        "Supported-OS": "linux",
+        "Languages": "SkyLine"
+    }
+}

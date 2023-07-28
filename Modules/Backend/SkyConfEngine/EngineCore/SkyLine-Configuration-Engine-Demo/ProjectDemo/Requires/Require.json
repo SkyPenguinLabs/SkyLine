@@ -1,0 +1,11 @@
+{
+    "Requirements": {
+        "Libraries": [
+            "io",
+            "math"
+        ],
+        "Operating-System": "Linux",
+        "SLC-Version":"0.0.1",
+        "SL-Version":"0.0.5"
+    }
+}
