@@ -1,4 +1,0 @@
-
-set Subtract := Func(x, y) {
-    return x - y;
-};

@@ -1,3 +1,0 @@
-set Divide := Func(x, y) {
-    return x / y;
-};

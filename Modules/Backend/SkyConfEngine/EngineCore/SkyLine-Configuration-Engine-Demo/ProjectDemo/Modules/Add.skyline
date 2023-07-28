@@ -1,3 +1,0 @@
-set Addition := Func(x, y) {
-    return x + y;
-};

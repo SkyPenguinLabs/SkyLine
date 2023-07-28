@@ -1,4 +1,0 @@
-
-set Multiply := Func(x,y) {
-    return x * y;
-};
