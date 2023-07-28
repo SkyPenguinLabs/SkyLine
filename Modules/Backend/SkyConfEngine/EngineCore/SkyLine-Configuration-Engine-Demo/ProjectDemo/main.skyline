@@ -1,0 +1,16 @@
+ENGINE("EngineFile/Engine.slmod");
+
+set Framework := import("Modules/Input.skyline");
+
+cause Main := function() {
+    io.clear();
+    println(" [- Welcome to the calculator -] ")
+    println(" [-----------------------------] ")
+    println(" [+] Version   : " + Calculator_Version)
+    println(" [+] ?         : " + Calculator_Desc)
+    println(" [+] Name      : " + Calculator_Name)
+    println("\n \n ")
+    Framework::Input();
+};
+
+Main()

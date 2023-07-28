@@ -1,0 +1,8 @@
+This directory known as "SkyDB" Stands for the 
+    
+        | SkyLine Database
+
+Given that SkyLine tries to be as performant as possible, some information and states were stored in JSON files or even YAML files for configuration.
+
+This "Database" if you will contains a set of other sub directories and branches that all have test files, example files, zip files, signature files, mimetype files,
+packet files, signature files, test examples, testing documents and so much more which you can inspect yourself.
