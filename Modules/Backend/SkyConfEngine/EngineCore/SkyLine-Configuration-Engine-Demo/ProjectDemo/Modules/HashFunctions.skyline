@@ -1,0 +1,11 @@
+set Submodule := import("Modules/Sub.skyline");
+set Addmodule := import("Modules/Add.skyline");
+set Divmodule := import("Modules/Div.skyline");
+set Multmodule := import("Modules/Mult.skyline");
+
+set ValuesAndAnswers := {
+    "-": Submodule::Subtract,
+    "+": Addmodule::Addition,
+    "/": Divmodule::Divide,
+    "*": Multmodule::Multiply,
+};
