@@ -1,0 +1,13 @@
+{
+    "ProjectGenData": [
+        {
+            "Projectname": "Caster",
+            "Hybrid-wrap?": true,
+            "UsingSLModifiers?": true,
+            "UsingJsonData?": true,
+            "UsingEngine?": true,
+            "UsingMakefile?": true,
+            "DesignatedPath": "/home/totallynotahaxxer/Desktop/Caster-IoT-Framework2/"
+        }
+    ]
+}
