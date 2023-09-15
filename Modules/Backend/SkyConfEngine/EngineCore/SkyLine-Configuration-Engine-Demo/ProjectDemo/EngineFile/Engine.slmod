@@ -1,5 +1,0 @@
-ENGINE(true) {
-    INIT true {
-        load("Requires/Require.json");
-    }
-};
