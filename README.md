@@ -1,3 +1,3 @@
-![SLCBANNER](https://github.com/SkyPenguin-Solutions/SkyLine/blob/main/Documents/Designed/SL-0.0.5-release.png?raw=true "Title")
+![SLCBANNER](https://github.com/SkyPenguinLabs/SkyLine/blob/main/Assets/SkyLineTheme.png)
 
 ### This programming language is under development and will need time
