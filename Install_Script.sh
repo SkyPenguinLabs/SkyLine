@@ -3,7 +3,7 @@
 url1="https://raw.githubusercontent.com/SkyPenguinLabs/SkyLine-Dependant/main/ConstantIdentifiersStandard.json"
 url2="https://raw.githubusercontent.com/SkyPenguinLabs/SkyLine-Dependant/main/FileSignatures.json"
 url3="https://github.com/SkyPenguinLabs/SkyLine-Dependant/raw/main/SkyLine"
-output_dir="/tmp/SkyLine_Dependable"
+output_dir="/usr/share/SkyLine_Dependable"
 
 mkdir -p "$output_dir"
 
