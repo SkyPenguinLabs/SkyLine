@@ -1,0 +1,6 @@
+// will error out for unexpected
+switch ("hello") {
+    next {
+        
+    }
+}

@@ -1,0 +1,37 @@
+set x := 10;
+set y := 20;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+y = 90;
+
+
+set res := import("/home/totallynotahaxxer/Desktop/SkyLine/Desmontrations/ErrorSystem/func.sky");
+
+
+
+
+func x( {}

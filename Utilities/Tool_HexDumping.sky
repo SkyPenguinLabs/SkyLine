@@ -1,0 +1,52 @@
+register(
+    "Unique",
+    "File",
+    "console",
+    "io"
+)
+
+define DisplayContents(filename, rowlen, showchar, colormode, color) {
+    if colormode == -int(1) {
+        Unique.HexDump(filename, rowlen, showchar, colormode);
+    } else {
+        Unique.HexDump(filename, rowlen, showchar, int(1), console.HtmlToAnsi(color, "", false));
+    }
+}
+
+define init() {
+    io.clear()
+    println()
+	set sym := "";
+	sym += console.HtmlToAnsi("03fcdb", "") + " \t \t " + `	 ┏━┓ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `	┃`+console.HtmlToAnsi("03fcdb", "")+`┃ ┃ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `    ━━━━┛ ` 
+	println(sym)
+	print(
+		console.HtmlToAnsi("ffffff", "")
+	)
+	println("	Sky Line Interpreter| V 0.10.0 " + console.HtmlToAnsi("04fcdb", "(Nightly) \n "))
+    set Args := args();
+    if (Args.Includes("dumphex")) and (Args.Includes("tool")) {
+        Args.PopL();
+        Args.PopL();
+        // we need a input file
+        // we also need a row length 
+        // then we need a if show chars or not
+        // then we also need a color choice
+        if Args.Length() == int(5) {
+            set file := Args[0];
+            set rowlen := int(Args[1]);
+            set ShowChars := Args[2];    
+            set ShowRes := false; 
+            if ShowChars == "true" {
+                ShowRes = true;
+            } 
+            set ColorMode := Args[3];
+            set Color := Args[4]; // Remember that we are using a color code here for HTML
+            DisplayContents(file, rowlen, ShowRes, ColorMode, Color)
+        } else {
+            println("Something went wrong...[{}]".Format(Args))
+        }
+    }
+}
+

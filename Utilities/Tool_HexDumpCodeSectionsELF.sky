@@ -1,0 +1,65 @@
+mode("pwn")
+
+register(
+    "console",
+    "io"
+)
+
+// tool hexdumpsection
+define init() {
+    io.clear()
+    println()
+	set sym := "";
+	sym += console.HtmlToAnsi("03fcdb", "") + " \t \t " + `	 ┏━┓ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `	┃`+console.HtmlToAnsi("03fcdb", "")+`┃ ┃ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `    ━━━━┛ ` 
+	println(sym)
+	print(
+		console.HtmlToAnsi("ffffff", "")
+	)
+	println("	Sky Line Interpreter| V 0.10.0 " + console.HtmlToAnsi("04fcdb", "(Nightly) \n "))
+    set Args := args();
+    if (Args.Includes("hexdumpsection")) and (Args.Includes("tool")) {
+        Args.PopL();
+        Args.PopL();
+        // we need a input file
+        // we also need a row length 
+        // then we need a if show chars or not
+        // then we also need a color choice
+        if Args.Length() == int(6) {
+            set file := Args[0];
+            set rowlen := int8(int(Args[1]));
+            set ShowChars := Args[2];    
+            set ShowRes := false; 
+            if ShowChars == "true" {
+                ShowRes = true;
+            } 
+            println(" File \t Rowlen \t ShowChars \t ColorMode \t ColorCode \t CodeSection")
+            set ColorMode := Args[3];
+            set Color := Args[4]; // Remember that we are using a color code here for HTML
+            set Section := Args[5];
+            println(" {} \t {} \t {} \t \t {} \t \t {} \t \t {}".Format(file, sprint(rowlen), ShowChars, ColorMode, Color, Section))
+            println(" \t ")
+            // Now configure Unique data 
+            if Sectionexists(file, Section) {
+                UniqueConf(
+                    DumpSectionData(file, Section)["data"],
+                    rowlen, 
+                    ShowRes,
+                    int8(int(ColorMode)),
+                    Color,
+                    " ", 
+                    " ",
+                    " ",
+                    `│` )
+                UniqueHexDump()
+            } else {
+                println("[-] Section did not exist in binary")
+            }
+
+        } else {
+            println("Something went wrong...[{}]".Format(Args))
+        }
+    }
+}
+

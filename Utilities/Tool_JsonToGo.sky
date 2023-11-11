@@ -1,0 +1,51 @@
+register(
+    "io",
+    "Unique",
+    "console",
+    "json",
+    "File"
+)
+
+define ReadFile(filename) {
+    File.New(filename)
+    return File.Open();
+};
+
+define InsertDataToFile(filename, data) {
+    File.CreateWrite(filename, data)
+}
+
+define init() {
+    io.clear()
+    println()
+	set sym := "";
+	sym += console.HtmlToAnsi("03fcdb", "") + " \t \t " + `	 ┏━┓ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `	┃`+console.HtmlToAnsi("03fcdb", "")+`┃ ┃ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `    ━━━━┛ ` 
+	println(sym)
+	print(
+		console.HtmlToAnsi("ffffff", "")
+	)
+	println("	Sky Line Interpreter| V 0.10.0 " + console.HtmlToAnsi("04fcdb", "(Nightly) \n "))
+    set Args := args();
+    if (Args.Includes("jsontogo")) and (Args.Includes("tool")) {
+        Args.PopL();
+        Args.PopL();
+        // we need two arguments 
+        // the input json file
+        // the output file
+        if Args.Length() == int(3) {
+            set inputfilename := Args[0];
+            set outputfilename := Args[1];
+            println(
+                io.FormatBox(
+                    json.ToGo(
+                        ReadFile(inputfilename), Args[2]
+                    )
+                )
+            )
+        } else {
+            println("Something went wrong...[{}]".Format(Args))
+        }
+    }
+}

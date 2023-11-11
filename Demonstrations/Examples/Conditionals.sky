@@ -1,0 +1,23 @@
+set x := 10;
+
+if x == 10 {
+    println("is 10")
+}
+
+if (x == 10) and (20 == 20) {
+    println("x is 10 and 20 == 20")
+}
+
+if (x == 10) or (x == 20) {
+    println("x is either 10 or 20")
+}
+
+// chain 
+
+if (x == 10) {
+    println("chained, x == 10")
+} else if (x == 20) {
+    println("x is 20")
+} else {
+    println(x)
+}

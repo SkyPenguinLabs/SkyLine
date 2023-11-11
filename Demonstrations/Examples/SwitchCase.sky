@@ -1,0 +1,10 @@
+set x := 10;
+
+sw x {
+    cs 10 {
+        println("is 10!")
+    }
+    df {
+        println("Not 10")
+    }
+}

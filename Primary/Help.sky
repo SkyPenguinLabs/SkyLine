@@ -1,0 +1,138 @@
+register(
+	"Unique",
+	"io",
+	"console",
+	"File"
+)
+
+func CallBanStandardWMsg(msg) {
+    io.restore();
+    println("General Usage: {}".Format(msg))
+    println(" \n ")
+}
+
+
+constant MapOFuncs = {
+   "run": Func() {
+        CallBanStandardWMsg("SkyLine Run <file>")
+        println(console.HtmlToAnsi("f5ec42", " Commands: "))
+        io.restore();
+        print(
+            "\t  <script>         | [DEMO]`SkyLine Run examplefile.sl` \n "
+        )
+   },
+   "tool": Func() {
+        CallBanStandardWMsg("SkyLine Tool <tool_name> <tool_args...>")
+        println(console.HtmlToAnsi("f5ec42", " Commands: "))
+        io.restore();
+        print(
+            "\t  stringtool      | Highlight specific strings in a file with regex patterns \n " + 
+            "\t  hexdumpsection  | Hex dump the contents of a section within ELF files \n " + 
+            "\t  disasmsection   | Disassemble a given code section from an ELF file (X86 Only) \n " + 
+            "\t  pack            | Pack64 and Pack32 from the SkyLine PwnKit \n " +
+            "\t  jsontogo        | Translate JSON files to Golang json structs for development \n " +
+            "\t  htmlconv        | Take an HTML file from TEXT-IMAGE and print contents (formatted) \n " +
+            "\t  elfhead         | Get ELF header information (Basic info) \n " +
+            "\t  pngtools        | Framework for PNG image manipulation \n " +
+            "\t  imgtools        | Framework for image & content manipulation \n "+ 
+            "\t  jsontoxml       | Dump JSON files (Simple) to XML representations \n " +
+            "\t  xmltojson       | Dump XML files (Simple) to JSON representations \n " +
+            "\t  genxml          | Generate random XML files \n " +
+            "\t  genjson         | Generate random JSON files \n " +
+            "\t  stegutils       | File steganography utility framework \n " +
+            "\t  binscan         | Trashy binary vulnerability scanner \n " +
+            "\t  dumphex         | Unique hex dumping utility \n " +
+            "\t  filerec         | File signature scanning - (better to use `file` imo) \n " 
+        )
+        println(console.HtmlToAnsi("f5ec42", " \n Example: SkyLine Tool elfhead file.so"))
+   },
+   "slc": Func() {
+        CallBanStandardWMsg("SkyLine SLC <Command> <Command Args...>")
+        println(console.HtmlToAnsi("f5ec42", " Commands: "))
+        io.restore();
+        print(
+            "\t  syntax         | Will check and verify the validity of a SLMOD file \n " + 
+            "\t  generate       | Will generate a specified project template \n " + 
+            "\t  init           | Will generate a basic project based on project files \n "
+        )
+        println(console.HtmlToAnsi("f5ec42", " \n Example: SkyLine SLC generate Wrapped"))
+   },
+   "play": Func(){
+        CallBanStandardWMsg("SkyLine Play <Switches>")
+        println(console.HtmlToAnsi("f5ec42", " Commands: "))
+        io.restore();
+        print(
+            "\t  --port         | Will bind to the specified port \n " + 
+            "\t  --host         | Will bind to the specified host \n " + 
+            "\t  --debug        | Will enable debug on the server \n "
+        )
+        println(console.HtmlToAnsi("f5ec42", " \n Example: SkyLine SLC generate Wrapped"))
+   }
+};
+
+func StandardHelp() {
+    io.restore();
+    println("General Usage: SkyLine <commands> <cli-switch> ...")
+    println(" \n ")
+    println(console.HtmlToAnsi("f5ec42", " Commands: "))
+    io.restore();
+    print(
+        "\t  Help         | Display this menu \n " + 
+        "\t  Interactive  | Enter the REPL \n " + 
+        "\t  Repl         | Enter the REPL \n " + 
+        "\t  Slc          | Query for the SkyLine Configuration Engine \n " + 
+        "\t  Play         | Start the web playground for SkyLine and SLC \n " +
+        "\t  Version      | Get the current version of SLC and SkyLine \n " + 
+        "\t  Update_Mods  | Update all dependant scripts for SkyLine \n " + 
+        "\t  Run          | Run a .sky or .sl script (SkyLine Script) \n " +
+        "\t  Tool         | Run a builtin tool built in SkyLine \n " +
+        "\t  help <cmd>   | View a specific set of sub-commands for tools\n " 
+    )
+    println("\n [!] Flags are not case sensitive")
+};
+
+
+define init() {
+    // pop left becayse we only want to see if there are real arguments
+    set Arguments := args();
+	io.clear()
+    println()
+	set sym := "";
+	sym += console.HtmlToAnsi("03fcdb", "") + " \t \t " + `	 ┏━┓ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `	┃`+console.HtmlToAnsi("03fcdb", "")+`┃ ┃ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `    ━━━━┛ ` 
+	println(sym)
+	print(
+		console.HtmlToAnsi("ffffff", "")
+	)
+	println("	Sky Line Interpreter| V 0.10.0 " + console.HtmlToAnsi("04fcdb", "(Nightly)"))
+	io.restore()
+	Unique.AnimativeTerm(
+		console.HtmlToAnsi(
+			"f2eded",
+			"[1]" + ` │ ` + "set x := `SkyLine - Made By Hackers For Hackers`; "
+		), int(1), int(20)
+	)
+    if (Arguments.Length() > int(1)) {
+        switch (Arguments[1].Lower()) {
+            case "run" {
+                MapOFuncs["run"]()
+            }
+            case "tool" {
+                MapOFuncs["tool"]()
+            }
+            case "play" {
+                MapOFuncs["play"]()
+            }
+            case "slc" {
+                MapOFuncs["slc"]()
+            }
+            default {
+                StandardHelp()
+            }
+        }
+    } else {
+        StandardHelp()
+    }
+}
+ 

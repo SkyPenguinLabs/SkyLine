@@ -1,0 +1,46 @@
+if (10 == 10) and (11 == 11) {
+    println("Used the and keyword")
+}
+
+if (10 == 10) && (11 == 11) {
+    println("Used the && symbol")
+}
+
+if (10 == 10) or (11 == 11) {
+    println("Used the or keyword")
+}
+
+if (10 == 10) || (11 == 11) {
+    println("Used the || symbol")
+}
+
+// BITWISE
+println(10 XOR 2)
+println(10 OR 2)
+println(10 | 2)
+println(10 AND 2)
+println(10 & 2)
+println(10 LSHIFT 2)
+println(10 RSHIFT 2)
+
+// Mathematical
+println(10 divide 20)
+println(10 multiply 20)
+println(10 subtract 20)
+println(10 add 20)
+println(10 to 20)
+println(10 * 20)
+println(10 / 20)
+println(10 + 20)
+println(10 - 20)
+println(10 % 20)
+println(10 ** 20)
+println(10 .. 20)
+// use of underscore will ignore a value
+set data := {"key": "value"};
+foreach x, _ in data {
+    println(x)
+}
+
+
+

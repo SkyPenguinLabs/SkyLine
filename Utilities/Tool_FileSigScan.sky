@@ -1,0 +1,35 @@
+register(
+    "File",
+    "console",
+    "io"
+)
+
+define init() {
+    io.clear()
+    println()
+	set sym := "";
+	sym += console.HtmlToAnsi("03fcdb", "") + " \t \t " + `	 ┏━┓ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `	┃`+console.HtmlToAnsi("03fcdb", "")+`┃ ┃ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `    ━━━━┛ ` 
+	println(sym)
+	print(
+		console.HtmlToAnsi("ffffff", "")
+	)
+	println("	Sky Line Interpreter| V 0.10.0 " + console.HtmlToAnsi("04fcdb", "(Nightly) \n "))
+    set Args := args();
+    if (Args.Includes("filerec")) and (Args.Includes("tool")) {
+        Args.PopL();
+        Args.PopL();
+        if Args.Length() == int(1) {
+            // file mime is the function you would call to locate or check a file type
+            set res := File.Mime(Args[0]);
+            if res.Length() == int(0) {
+                println("[*] Unknown in database")
+            } else {
+                println("[*] File is> " + console.HtmlToAnsi("ffffff", "") + File.Mime(Args[0])[0])
+            }
+        } else {
+            println("Something went wrong...[{}]".Format(Args))
+        }
+    }
+}

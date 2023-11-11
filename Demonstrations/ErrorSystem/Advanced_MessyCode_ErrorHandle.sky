@@ -1,0 +1,27 @@
+register(
+	"Unique",
+	"io",
+	"console",
+	"File"
+)
+
+define init() {
+	io.clear()
+	set sym := "";
+	sym += console.HtmlToAnsi("03fcdb", "") + " \t \t " + `	 ┏━┓ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `	┃`+console.HtmlToAnsi("03fcdb", "")+`┃ ┃ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `    ━━━━┛ ` 
+	println(sym)
+	print(
+		console.HtmlToAnsi("ffffff", "")
+	)
+	println("	Sky Line Interpreter| V 0.10.0")
+	io.restore()
+	Unique.AnimativeTerm(
+		console.HtmlToAnsi(
+			"f2eded",
+			"[1]" `│` + "set x := `Cyber Security Core - Ctrl+C to continue!`; "
+		)
+	)
+	println("hello world")
+}

@@ -1,0 +1,61 @@
+register(
+	"Unique",
+	"io",
+	"console",
+	"http",
+    "json"
+)
+
+console.TableNew(
+    console.HtmlToAnsi(
+        "03fcb6", "", false
+    ), 
+    console.HtmlToAnsi(
+        "ffffff", "", false
+    ),  
+    console.HtmlToAnsi(
+        "ffffff", "", false
+    ),  
+    console.HtmlToAnsi(
+        "ffffff", "", false
+    ), 
+    console.HtmlToAnsi(
+        "ffffff", "", false
+    ), 
+    `━`, 
+    `┃`, 
+    `┫`, 
+    `┣`
+);
+
+define init() {
+    io.clear();
+    set sym := "";
+	sym += console.HtmlToAnsi("03fcdb", "") + " \t \t " + `	 ┏━┓ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `	┃`+console.HtmlToAnsi("03fcdb", "")+`┃ ┃ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `    ━━━━┛ ` 
+	println(sym)
+	print(
+		console.HtmlToAnsi("ffffff", "")
+	)
+    set body := http.Get("https://raw.githubusercontent.com/SkyPenguinLabs/SkyLine-Dependant/main/Versions.json")["ResponseBody"];
+    body = json.Parse(body)["Versions"];
+    set expected := int(0);
+    set Rows := [];
+    set Cols := ["Technology", "Version", "Build"];
+    if body.Length() >= expected {
+        Rows.Append(
+            ["SLC", body[0]["SLC"].Split(" ")[0], body[0]["SLC"].Split(" ")[1]]
+        )
+        Rows.Append(
+            ["SkyLine (CSC)", body[0]["SL(CSC)"].Split(" ")[0], body[0]["SL(CSC)"].Split(" ")[1]]
+        )
+    }
+    Unique.AnimativeTerm(
+		console.HtmlToAnsi(
+			"f2eded",
+			"[1]" + ` │ ` + "Brought to you by SkyPenguinLabs                         "
+		), int(1), int(60)
+	)
+    println(" \n " + console.Table(Rows, Cols))
+}

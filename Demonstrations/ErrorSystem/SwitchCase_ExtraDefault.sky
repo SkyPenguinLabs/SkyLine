@@ -1,0 +1,12 @@
+switch ("hello world") {
+    case "hello" {
+        println("x")
+
+    }
+    default {
+        println("x")
+    }
+    default {
+        println("x")
+    }
+}

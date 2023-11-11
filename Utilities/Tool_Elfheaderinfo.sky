@@ -1,0 +1,66 @@
+register("console", "io")
+mode("pwn")
+
+func CallTable(data) {
+    console.TableNew(
+        console.HtmlToAnsi(
+            "03fcb6", "", false
+        ), 
+        console.HtmlToAnsi(
+            "ffffff", "", false
+        ),  
+        console.HtmlToAnsi(
+            "ffffff", "", false
+        ),  
+        console.HtmlToAnsi(
+            "ffffff", "", false
+        ), 
+        console.HtmlToAnsi(
+            "ffffff", "", false
+        ), 
+        `━`, 
+        `┃`, 
+        `┫`, 
+        `┣`
+    );
+    if Typeof(data) == "HASH" {
+        set Rows := [];
+        set Cols := ["Key", "Value"];
+        foreach k, v in data {
+            Rows.Append(
+                [sprint(v), sprint(k)]
+            )
+        };
+        println(console.Table(Rows, Cols))
+    }
+}
+
+define init() {
+    io.clear()
+    println()
+	set sym := "";
+	sym += console.HtmlToAnsi("03fcdb", "") + " \t \t " + `	 ┏━┓ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `	┃`+console.HtmlToAnsi("03fcdb", "")+`┃ ┃ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `    ━━━━┛ ` 
+	println(sym)
+	print(
+		console.HtmlToAnsi("ffffff", "")
+	)
+	println("	Sky Line Interpreter| V 0.10.0 " + console.HtmlToAnsi("04fcdb", "(Nightly) \n "))
+    println(console.HtmlToAnsi("f5ec42", " \n [*]: Interpreter Mode -> 'pwn' \n "))
+
+    // init the arguments 
+    set Args := args();
+    if (Args.Includes("elfhead")) and (Args.Includes("tool")) {
+        Args.PopL();
+        Args.PopL();
+        if Args.Length() == int(1) {
+            NewElf(Args[0])
+            CallTable(
+                ElfHead()
+            )
+        } else {
+            println("Something went wrong...[{}]".Format(Args))
+        }
+    } 
+}

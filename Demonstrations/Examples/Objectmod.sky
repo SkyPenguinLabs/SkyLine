@@ -1,0 +1,5 @@
+define object.CALLLLLL() {
+    println("hi")
+}
+
+println("".CALLLLLL())

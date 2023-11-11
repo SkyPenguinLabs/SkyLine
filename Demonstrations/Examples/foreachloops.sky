@@ -1,0 +1,33 @@
+
+
+// foreach x within array of [1..20] print x
+foreach x in 1 to 20 {
+    println(x)
+}
+
+// itterate over a map
+
+set res := {
+    "name": "value",
+    "name1": "value2"
+};
+
+foreach x, y in res {
+    println(x + " | " + y)
+}
+
+// itterate over a map with same keys
+// anything that already exists will be erased 
+// and popped from memory
+// name and value should only appear once
+set res := {
+    "name": "value",
+    "name": "value",
+    "name": "value",
+    "name": "value",
+    "name": "value"
+};
+
+foreach x, y in res {
+    println(x + " v1|v2 " + y)
+}

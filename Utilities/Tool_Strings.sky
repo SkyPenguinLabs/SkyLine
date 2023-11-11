@@ -1,0 +1,98 @@
+!-
+
+Example: 
+
+SkyLine tool stringtool /home/totallynotahaxxer/Desktop/Caster/Backend/Core/Data/Temp.plist ".*<string>(.*)</string>.*"
+
+Description:
+    This tool is aimed to be a better version of `strings` by being able to search via regex pattern and color the output 
+    whilst also using specific box drawing characters to show the output within the language. 
+
+Demonstration:
+    Try the command example above with the following PLIST file
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>deviceid</key>
+	<string>F4:F9:51:DF:6F:97</string>
+	<key>features</key>
+	<integer>130367356919</integer>
+	<key>macAddress</key>
+	<string>F4:F9:51:DF:6F:96</string>
+	<key>model</key>
+	<string>AppleTV3,2</string>
+	<key>osBuildVersion</key>
+	<string>12H1006</string>
+	<key>protovers</key>
+	<string>1.0</string>
+	<key>srcvers</key>
+	<string>220.68</string>
+	<key>vv</key>
+	<integer>2</integer>
+</dict>
+</plist>
+
+-!
+
+register(
+    "io",
+    "console",
+    "Unique"
+)
+
+mode("pwn")
+
+define FindMatchPat(filename, pattern) {
+    set res := Strings(filename);
+    set bod := "";
+    foreach k in res {
+        bod += k + " \n "; 
+    }
+    println("Choosing pattern: " + console.HtmlToAnsi("0ee6c2", "") + `{}`.Format(pattern))
+    io.restore()
+    println(io.FormatBox(
+        Unique.HighlightPattern(
+            bod,
+            [
+                console.HtmlToAnsi("0ee6c2", "")
+            ],
+            [
+                `{}`.Format(pattern)
+            ]
+        ),
+        false
+    ))
+}
+
+define init() {
+    io.clear()
+    println()
+	set sym := "";
+	sym += console.HtmlToAnsi("03fcdb", "") + " \t \t " + `	 ┏━┓ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `	┃`+console.HtmlToAnsi("03fcdb", "")+`┃ ┃ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `    ━━━━┛ ` 
+	println(sym)
+	print(
+		console.HtmlToAnsi("ffffff", "")
+	)
+	println("	Sky Line Interpreter| V 0.10.0 " + console.HtmlToAnsi("04fcdb", "(Nightly) \n "))
+    println(console.HtmlToAnsi("f5ec42", " \n [*]: Interpreter Mode -> 'pwn' \n "))
+    // init the arguments 
+    set Args := args();
+     if (Args.Includes("stringtool")) and (Args.Includes("tool")) {
+        Args.PopL();
+        Args.PopL();
+        if Args.Length() == int(2) {
+            // now lets get the strings and the data
+            set filename := Args[0];
+            set pattern := Args[1];
+            io.restore()
+            // we can go ahead and pass the string filters
+            FindMatchPat(filename, pattern)
+        } else {
+            println("Something went wrong...[{}]".Format(Args))
+        }
+    } 
+}

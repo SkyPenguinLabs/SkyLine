@@ -1,0 +1,46 @@
+register(
+    "xml",
+    "console",
+    "io",
+    "Unique",
+    "File"
+)
+
+// this will take an input json file and then convert it to XML
+define Convert(infile, outfile) {
+    println(console.HtmlToAnsi("03fcdb", "") + "[*] Converting JSON to XML")
+    println(console.HtmlToAnsi("03fcdb", "") + "[*] Writing to file {} \n ".Format(outfile))
+    set Body := xml.FromJson(infile);
+    println(
+        io.FormatBox(
+            Body
+        )
+    )
+    // now write it to the output file
+    File.CreateWrite(outfile, Body)
+}
+
+define init() {
+    io.clear()
+    println()
+	set sym := "";
+	sym += console.HtmlToAnsi("03fcdb", "") + " \t \t " + `	 ┏━┓ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `	┃`+console.HtmlToAnsi("03fcdb", "")+`┃ ┃ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `    ━━━━┛ ` 
+	println(sym)
+	print(
+		console.HtmlToAnsi("ffffff", "")
+	)
+	println("	Sky Line Interpreter| V 0.10.0 " + console.HtmlToAnsi("04fcdb", "(Nightly) \n "))
+    set Args := args();
+    if (Args.Includes("jsontoxml")) and (Args.Includes("tool")) {
+        Args.PopL();
+        Args.PopL();
+        if Args.Length() == int(2) {
+            // we should now be able to parse extra arguments and format the info
+            Convert(Args[0], Args[1])
+        } else {
+            println("Something went wrong...[{}]".Format(Args))
+        }
+    }
+}

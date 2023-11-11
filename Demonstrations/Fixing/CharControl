@@ -1,0 +1,38 @@
+[13]┃     io.restore();
+[14]┃     print(
+[15]┃         "\t  Help         | Display this menu \n " + 
+[16]┃         "\t  Interactive  | Enter the REPL \n " + 
+[17]┃         "\t  Repl         | Enter the REPL \n" + 
+[18]E┃        "\t  Slc          | Query for the SkyLine Configuration Engine \n " +  ┃
+[19]┃         "\t  Play         | Start the web playground for SkyLine and SLC \n " +
+[20]┃         "\t  Version      | Get the current version of SLC and SkyLine \n " + 
+[21]┃         "\t  Update_Mods  | Update all dependant scripts for SkyLine \n " + 
+[22]┃         "\t  Run          | Run a .sky or .sl script (SkyLine Script) \n " +
+[23]┃ 
+
+NativeScripts/Primary/Help.sky- [E]:(SkyLine Parser) | 160
+         ┃
+[E]      ┃ Unexpected token, expected `)` but found \ 
+         ┃
+[Line]   ┃ 19 
+         ┃     
+
+
+This output shows a weird demonstration with the escape sequences within SkyLine. We consider SkyLine to be a fucky-wucky language.
+
+When it comes to escape sequences, we find errors to be unique and definitely weird. For example, in this demo, the error is on line
+
+18 and it says that there was an unexpected token. When we look at this, what do we see?
+
+```sl
+[17]┃         "\t  Repl         | Enter the REPL \n" + 
+[18]E┃        "\t  Slc          | Query for the SkyLine Configuration Engine \n " +  ┃
+```
+
+Lets look at the end of line 17.
+
+Notice how `\n` is at the end of " in the programmatic line? This syntax rule is extremely strict for safety reasons. 
+
+these characters and sequences can not be placed at the end of a string and should not even be placed at the beginning of a string either.
+
+Fixing this would be as simple as adding a space after \n

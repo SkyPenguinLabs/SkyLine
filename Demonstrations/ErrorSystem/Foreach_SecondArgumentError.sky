@@ -1,0 +1,1 @@
+foreach x, 0 in 1..5 { println(x) }

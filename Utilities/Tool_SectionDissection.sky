@@ -1,0 +1,51 @@
+mode("pwn")
+
+register(
+    "console",
+    "io"
+)
+
+// tool hexdumpsection
+define init() {
+    io.clear()
+    println()
+	set sym := "";
+	sym += console.HtmlToAnsi("03fcdb", "") + " \t \t " + `	 ┏━┓ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `	┃`+console.HtmlToAnsi("03fcdb", "")+`┃ ┃ ` + " \n "
+	sym += console.HtmlToAnsi("7b03fc", "") + " \t \t " + `    ━━━━┛ ` 
+	println(sym)
+	print(
+		console.HtmlToAnsi("ffffff", "")
+	)
+	println("	Sky Line Interpreter| V 0.10.0 " + console.HtmlToAnsi("04fcdb", "(Nightly) \n "))
+    set Args := args();
+    if (Args.Includes("disasmsection")) and (Args.Includes("tool")) {
+        Args.PopL();
+        Args.PopL();
+        // we need a input file
+        // we also need a row length 
+        // then we need a if show chars or not
+        // then we also need a color choice
+        if Args.Length() == int(2) {
+            set file := Args[0];
+            set Section := Args[1];
+            if Sectionexists(file, Section) {
+                set bod := "";
+                foreach char in DisasmSection(file, Section) {
+                    bod += console.HtmlToAnsi("03fcdb", "") + char;
+                }
+                println(
+                    io.FormatBox(
+                       bod
+                    )
+                )
+            } else {
+                println("[-] Section did not exist in binary")
+            }
+
+        } else {
+            println("Something went wrong...[{}]".Format(Args))
+        }
+    }
+}
+
