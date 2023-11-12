@@ -1,4 +1,4 @@
 ![SLCBANNER](https://github.com/SkyPenguinLabs/SkyLine/blob/main/Assets/SkyLineTheme.png)
 
-[!NOTE] 
-In active development
+> [!NOTE]  
+> Highlights information that users should take into account, even when skimming.
